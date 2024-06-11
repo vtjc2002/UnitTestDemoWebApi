@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using UnitTestDemoWebApi.DAL;
+﻿using UnitTestDemoWebApi.DAL;
 using UnitTestDemoWebApi.Models;
 
 namespace UnitTestDemoWebApi.Services
@@ -14,9 +13,10 @@ namespace UnitTestDemoWebApi.Services
             _context = context;
         }
 
-        public async Task<WeatherForecast> GetWeatherForecast(int id)
+        public async Task<WeatherForecast> GetWeatherForecastAsync(int id)
         {
-            var weatherForecast = await _context.WeatherForecast.FindAsync(id);
+            var weatherForecasts = await _context.GetMockDataAsync.ToListAsync();
+            var weatherForecast = weatherForecasts.FirstOrDefault(x => x.Id == id, null);
 
             if (weatherForecast == null)
             {
@@ -31,26 +31,11 @@ namespace UnitTestDemoWebApi.Services
             return weatherForecast;
         }
 
-        public async Task<IEnumerable<WeatherForecast>> GetWeatherForecasts()
+        public async Task<IEnumerable<WeatherForecast>> GetWeatherForecastsAsync()
         {
-            return await _context.WeatherForecast.ToListAsync();
+            return await _context.GetMockDataAsync.ToListAsync();
         }
 
-        #region Not implemented
-        public Task<WeatherForecast> PostWeatherForecast(WeatherForecast weatherForecast)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<WeatherForecast> PutWeatherForecast(int id, WeatherForecast weatherForecast)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<WeatherForecast> DeleteWeatherForecast(int id)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
     }
 }

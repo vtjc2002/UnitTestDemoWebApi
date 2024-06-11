@@ -29,7 +29,7 @@ namespace UnitTestDemoWebApi.Controllers.Tests
 
             var weather = new WeatherForecast { Id = -1, Summary = "Not Found!" };
 
-            service.Setup(x => x.GetWeatherForecast(It.IsAny<int>())).ReturnsAsync(weather);
+            service.Setup(x => x.GetWeatherForecastAsync(It.IsAny<int>())).ReturnsAsync(weather);
 
             //Act
             var result = await controller.GetWeatherForecast(100);

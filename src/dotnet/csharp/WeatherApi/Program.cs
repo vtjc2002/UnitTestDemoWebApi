@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
-using UnitTestDemoWebApi.DAL;
-using UnitTestDemoWebApi.Services;
+using WeatherApi.DAL;
+using WeatherApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

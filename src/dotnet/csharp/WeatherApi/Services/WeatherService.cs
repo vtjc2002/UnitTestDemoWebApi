@@ -1,7 +1,7 @@
-﻿using UnitTestDemoWebApi.DAL;
-using UnitTestDemoWebApi.Models;
+﻿using WeatherApi.DAL;
+using WeatherApi.Models;
 
-namespace UnitTestDemoWebApi.Services
+namespace WeatherApi.Services
 {
     public class WeatherService : IWeatherService
     {

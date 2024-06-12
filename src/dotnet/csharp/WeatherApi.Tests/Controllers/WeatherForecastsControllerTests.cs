@@ -1,18 +1,18 @@
 ﻿using Xunit;
-using UnitTestDemoWebApi.Controllers;
+using WeatherApi.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
-using UnitTestDemoWebApi.Services;
+using WeatherApi.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using UnitTestDemoWebApi.Models;
+using WeatherApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace UnitTestDemoWebApi.Controllers.Tests
+namespace WeatherApi.Controllers.Tests
 {
     public class WeatherForecastsControllerTests
     {
@@ -20,7 +20,7 @@ namespace UnitTestDemoWebApi.Controllers.Tests
         /// Test when get weather by id is not found
         /// </summary>
         [Fact()]
-        public async void GetWeatherForecastNotFound()
+        public async Task GetWeatherForecastNotFound()
         {
             //Setup 
             var service = new Mock<IWeatherService>();

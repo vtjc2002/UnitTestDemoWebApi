@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UnitTestDemoWebApi.Models;
-using UnitTestDemoWebApi.Services;
+using WeatherApi.Models;
+using WeatherApi.Services;
 
-namespace UnitTestDemoWebApi.Controllers
+namespace WeatherApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +23,7 @@ namespace UnitTestDemoWebApi.Controllers
             _weatherService = weatherService;
         }
 
-        // GET: api/WeatherForecasts
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<WeatherForecast>>> GetWeatherForecast()
         {
@@ -32,7 +32,7 @@ namespace UnitTestDemoWebApi.Controllers
             return weatherForecasts.ToList();
         }
 
-        // GET: api/WeatherForecasts/5
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<WeatherForecast>> GetWeatherForecast(int id)
         {

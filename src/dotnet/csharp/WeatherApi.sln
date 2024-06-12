@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestDemoWebApi", "UnitTestDemoWebApi\UnitTestDemoWebApi.csproj", "{D31EBA36-8339-4887-B930-58CFB1DD0898}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApi", "WeatherApi\WeatherApi.csproj", "{D31EBA36-8339-4887-B930-58CFB1DD0898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDemoWebApi.Tests", "UnitTestDemoWebApi.Tests\UnitTestDemoWebApi.Tests.csproj", "{BE598CC1-89D5-4AA3-AD4F-919260448E68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApi.Tests", "WeatherApi.Tests\WeatherApi.Tests.csproj", "{BE598CC1-89D5-4AA3-AD4F-919260448E68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
-﻿using UnitTestDemoWebApi.Models;
+﻿using WeatherApi.Models;
 
-namespace UnitTestDemoWebApi.Services
+namespace WeatherApi.Services
 {
     public interface IWeatherService
     {

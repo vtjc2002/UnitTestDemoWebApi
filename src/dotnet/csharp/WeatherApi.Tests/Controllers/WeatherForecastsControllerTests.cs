@@ -27,7 +27,7 @@ namespace WeatherApi.Controllers.Tests
 
             var controller = new WeatherForecastsController(new NullLogger<WeatherForecastsController>(), service.Object);
 
-            var weather = new WeatherForecast { Id = -1, Summary = "Not Found!" };
+            WeatherForecast weather = null;
 
             service.Setup(x => x.GetWeatherForecastAsync(It.IsAny<int>())).ReturnsAsync(weather);
 
@@ -35,8 +35,7 @@ namespace WeatherApi.Controllers.Tests
             var result = await controller.GetWeatherForecast(100);
 
             //Assert
-            Assert.Equal(-1, result.Value?.Id);
-            Assert.Equal("Not Found!", result.Value?.Summary);
+            Assert.IsType<NotFoundResult>(result.Result);
         }
     }
 }

@@ -6,27 +6,19 @@ namespace WeatherApi.Services
     public class WeatherService : IWeatherService
     {
         private readonly WebApiContext _context;
+        private readonly ILogger<WeatherService> _logger;
 
         //WeatherService constructor
-        public WeatherService(WebApiContext context)
+        public WeatherService(ILogger<WeatherService> logger, WebApiContext context)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task<WeatherForecast> GetWeatherForecastAsync(int id)
         {
             var weatherForecasts = await _context.GetMockDataAsync.ToListAsync();
             var weatherForecast = weatherForecasts.FirstOrDefault(x => x.Id == id, null);
-
-            if (weatherForecast == null)
-            {
-                return new WeatherForecast
-                {
-                    Id = -1,
-                    Summary = "not found!"
-
-                };
-            }
 
             return weatherForecast;
         }

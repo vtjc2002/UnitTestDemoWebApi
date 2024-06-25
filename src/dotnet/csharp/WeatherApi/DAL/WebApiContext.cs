@@ -5,7 +5,7 @@ namespace WeatherApi.DAL
     public class WebApiContext
     {
         
-        private IEnumerable<WeatherForecast> _weatherForecasts;
+        private IList<WeatherForecast> _weatherForecasts;
 
         public WebApiContext()
         {
@@ -30,7 +30,7 @@ namespace WeatherApi.DAL
         public IAsyncEnumerable<WeatherForecast> GetMockDataAsync => _weatherForecasts.ToAsyncEnumerable();
 
         /// <summary>
-        /// Add a new weather forecast to _weatherForecasts.
+        /// Add a new weather forecast to weatherForecasts.
         /// </summary>
         public Task<WeatherForecast> AddWeatherForecastAsync(WeatherForecast weatherForecast)
         {
@@ -41,7 +41,7 @@ namespace WeatherApi.DAL
             weatherForecast.Id = lastId + 1;
 
             // add the new weather forecast
-            _weatherForecasts.Append(weatherForecast);
+            _weatherForecasts.Add(weatherForecast);
 
             return Task.FromResult(weatherForecast);
         }

@@ -51,5 +51,33 @@ namespace WeatherApi.Controllers
 
             return weatherForecast;
         }
+
+        /// <summary>
+        /// adds a new weather forecast.
+        /// </summary>
+        /// <param name="weatherForecast">The weather forecast to add.</param>
+        /// <returns>The added weather forecast.</returns>
+        /// <response code="201">Returns the newly created weather forecast.</response>
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<ActionResult<WeatherForecast>> AddWeatherForecast(WeatherForecast weatherForecast)
+        {
+            try
+            {
+                if (weatherForecast == null)
+                {
+                    return BadRequest();
+                }
+
+                var addedWeatherForecast = await _weatherService.AddWeatherForecastAsync(weatherForecast);
+
+                return CreatedAtAction(nameof(GetWeatherForecast), new { id = addedWeatherForecast.Id }, addedWeatherForecast);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while adding a weather forecast.");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding a weather forecast.");
+            }
+        }
     }
 }
